@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
 	skip_before_filter :require_login, only: [:new, :create]
 
+	layout "static"
+
 	def new
 		@user = User.new
 	end
