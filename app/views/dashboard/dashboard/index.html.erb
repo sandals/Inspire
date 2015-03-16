@@ -1,1 +1,7 @@
 <%= link_to "New Card", new_dashboard_card_path %>
+<hr>
+<% @cards.each do |card| %>
+	<div class="card">
+		<%= image_tag attachment_url(card, :image, :fill, 300, 300) %>
+	</div>
+<% end %>
