@@ -6,7 +6,7 @@ feature "User can create cards" do
 		expect(page).to have_content("Register or Login")
 	end
 
-	scenario "minimum required properties" do
+	scenario "minimum required properties", js: true do
 		login
 
 		click_on "New Card"
