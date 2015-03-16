@@ -1,0 +1,9 @@
+<%= form_for @card do |form| %>
+	<div>
+		<%= form.label :image %>
+		<%= form.attachment_field :image %>
+	</div>
+	<div>
+		<%= form.submit "Save Card" %>
+	</div>
+<% end %>
