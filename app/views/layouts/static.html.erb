@@ -14,13 +14,13 @@
 		<%= content_tag :div, value, class: "flash #{key}" %>
 	<% end %>
 
-	<section class="top-bar">
+	<div>
 		<% if current_user %>
 			Hello <%= current_user.username %> | <%= link_to "Dashboard", dashboard_root_path %> | <%= link_to "Logout", logout_path, method: :post %>
 		<% else %>
 			<%= link_to "Register", new_user_path %> or <%= link_to "Login", new_session_path %>
 		<% end %>
-	</section>
+	</div>
 
 	<%= yield %>
 
