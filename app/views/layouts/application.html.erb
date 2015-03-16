@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0">
-  <title>Inspo</title>
+	<title><%= page_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -15,7 +15,8 @@
 	<% end %>
 
 	<section class="top-bar">
-			Hello <%= current_user.username %> | <%= link_to "Dashboard", dashboard_root_path %> | <%= link_to "Logout", logout_path, method: :post %>
+		<%= topbar_heading(yield(:heading)) %> | 
+			<%= current_user.username %> | <%= link_to "Dashboard", dashboard_root_path %> | <%= link_to "Logout", logout_path, method: :post %>
 	</section>
 
 	<%= yield %>

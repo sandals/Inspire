@@ -1,4 +1,4 @@
-<h1><%= @collection.title %></h1>
+<%= content_for(:heading, @collection.title) %>
 <%= link_to "New card", new_dashboard_collection_card_path(@collection) %>
 <hr>
 <div class="cards">
