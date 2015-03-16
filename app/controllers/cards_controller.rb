@@ -8,7 +8,7 @@ class CardsController < ApplicationController
 	end
 
 	def create
-		@card = Card.new(card_params)
+		@card = current_user.cards.new(card_params)
 
 		if @card.save
 			redirect_to @card, notice: "Card saved"
