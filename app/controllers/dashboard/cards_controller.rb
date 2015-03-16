@@ -4,14 +4,16 @@ class Dashboard::CardsController < ApplicationController
 	end
 
 	def new
-		@card = Card.new
+		@collection = current_user.collections.find(params[:collection_id])
+		@new_card = @collection.cards.build
 	end
 
 	def create
-		@card = current_user.cards.new(card_params)
+		@collection = current_user.collections.find(params[:collection_id])
+		@card = @collection.cards.new(card_params)
 
 		if @card.save
-			redirect_to [:dashboard, @card], notice: "Card saved"
+			redirect_to [:dashboard, @collection], notice: "Card saved"
 		else
 			flash.now[:error] = "Could not save card"
 			render action: "new"

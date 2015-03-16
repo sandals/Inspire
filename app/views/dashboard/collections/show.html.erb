@@ -1,1 +1,10 @@
 <h1><%= @collection.title %></h1>
+<%= link_to "New card", new_dashboard_collection_card_path(@collection) %>
+<hr>
+<div class="cards">
+<% @collection.cards.each do |card| %>
+	<div class="card">
+		<%= image_tag attachment_url(card, :image, :fill, 300, 300) %>
+	</div>
+<% end %>
+</div>

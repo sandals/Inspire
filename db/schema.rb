@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316211432) do
+ActiveRecord::Schema.define(version: 20150316221035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
     t.string   "image_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.integer  "collection_id"
   end
 
+  add_index "cards", ["collection_id"], name: "index_cards_on_collection_id", using: :btree
   add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
 
   create_table "collections", force: :cascade do |t|
@@ -45,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150316211432) do
 
   add_index "users", ["username", "email"], name: "index_users_on_username_and_email", unique: true, using: :btree
 
+  add_foreign_key "cards", "collections"
   add_foreign_key "cards", "users"
   add_foreign_key "collections", "users"
 end

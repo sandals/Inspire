@@ -10,7 +10,10 @@ Rails.application.routes.draw do
 	namespace :dashboard do
 		root to: "dashboard#index"
 
-		resources :collections
-		resources :cards
+		shallow do
+			resources :collections do
+				resources :cards
+			end
+		end
 	end
 end
