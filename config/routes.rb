@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 	get "login" => "sessions#new", as: :login
 	post "logout" => "sessions#destroy", as: :logout
 
-	get "dashboard" => "dashboard#index", as: :dashboard
-
 	resources :users
 
-	resources :cards
+	namespace :dashboard do
+		root to: "dashboard#index"
+
+		resources :cards
+	end
 end

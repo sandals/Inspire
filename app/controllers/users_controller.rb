@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
 		if @user.save
 			auto_login(@user)
-			redirect_to dashboard_path
+			redirect_to dashboard_root_path
 		else
 			flash.now[:error] = "Could not create account."
 			render action: "new"

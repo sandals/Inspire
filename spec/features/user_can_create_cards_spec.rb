@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "User can create cards" do
 	scenario "without logging in" do
-		visit new_card_path
+		visit new_dashboard_card_path
 		expect(page).to have_content("Register or Login")
 	end
 
