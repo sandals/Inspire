@@ -28,6 +28,9 @@ gem 'sorcery'
 gem 'mini_magick'
 gem 'refile', require: ['refile/rails', 'refile/image_processing']
 
+# normalize.css
+gem 'normalize-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
