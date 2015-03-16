@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
-	before_create :normalize_email
+	before_save :normalize_email
 
   authenticates_with_sorcery!
 
 	validates_presence_of :username, :email, :password, :password_confirmation
 
+	validates :username, uniqueness: true
+	validates :email, uniqueness: true
 	validates :password, confirmation: true
 
 	private
