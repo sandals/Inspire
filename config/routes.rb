@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+	root to: "static_pages#index", via: :get
+
+	resources :sessions, only: [:new, :create, :destroy]
+	resources :users
+
+	post "logout" => "sessions#destroy", as: :logout
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
