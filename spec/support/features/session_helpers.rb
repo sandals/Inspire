@@ -6,7 +6,7 @@ module Features
 			fill_in "Email", with: user.email
 			fill_in "Password", with: "password"
 			click_button "Login"
-			visit root_path
+			# user should land on dashboard path
 		end
 	end
 end

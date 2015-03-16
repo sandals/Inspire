@@ -8,7 +8,6 @@ feature "User can create cards" do
 
 	scenario "minimum required properties" do
 		login
-		visit root_path
 
 		click_on "New Card"
 		attach_file "Image", File.join(Rails.root, '/spec/support/files/test.jpg')

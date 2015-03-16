@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 	resources :sessions, only: [:new, :create]
 	get "login" => "sessions#new", as: :login
 	post "logout" => "sessions#destroy", as: :logout
+
+	get "dashboard" => "dashboard#index", as: :dashboard
+
 	resources :users
+
 	resources :cards
 
   # The priority is based upon order of creation: first created -> highest priority.
