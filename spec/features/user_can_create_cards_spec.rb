@@ -9,9 +9,9 @@ feature "User can create cards" do
 	scenario "minimum required properties", js: true do
 		login
 
-		click_on "New Card"
+		click_on "New card"
 		attach_file "Image", File.join(Rails.root, '/spec/support/files/test.jpg')
-		click_button "Save Card"
+		click_button "Save card"
 
 		expect(page).to have_css(".card img")
 	end

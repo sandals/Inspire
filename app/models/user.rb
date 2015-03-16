@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	before_save :normalize_email
 
 	has_many :cards
+	has_many :collections
 
   authenticates_with_sorcery!
 

@@ -1,4 +1,12 @@
-<%= link_to "New Card", new_dashboard_card_path %>
+<%= link_to "New collection", new_dashboard_collection_path %>
+<%= link_to "New card", new_dashboard_card_path %>
+<hr>
+<h2>Collections</h2>
+<ul>
+	<% @collections.each do |collection| %>
+		<li><%= link_to collection.title, [:dashboard, collection] %></li>
+	<% end %>
+</ul>
 <hr>
 <div class="cards">
 	<% @cards.each do |card| %>
