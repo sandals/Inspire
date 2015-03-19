@@ -5,4 +5,11 @@ FactoryGirl.define do
 		password "password"
 		password_confirmation "password"
 	end
+
+	factory :collaborator, class: :user do
+		username "5ever"
+		email "loveu@gmail.com"
+		password "password"
+		password_confirmation "password"
+	end
 end

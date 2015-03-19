@@ -1,0 +1,11 @@
+<h1>Add Friend to Collection</h1>
+
+<%= form_for [:dashboard, @collection, @friend] do |form| %>
+	<div>
+		<%= form.label :username %>
+		<%= form.text_field :username %>
+	</div>
+	<div>
+		<%= form.submit "Add friend" %>
+	</div>
+<% end %>

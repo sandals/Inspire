@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
 		shallow do
 			resources :collections do
+				member do
+					get 'add_friend'
+				end
+				resources :collaborators
 				resources :cards
 			end
 		end

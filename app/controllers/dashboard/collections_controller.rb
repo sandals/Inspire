@@ -1,10 +1,15 @@
 class Dashboard::CollectionsController < ApplicationController
 	def show
-		@collection = current_user.collections.find(params[:id])
+		@collection = Collection.find(params[:id])
 	end
 
 	def new
 		@collection = current_user.collections.new
+	end
+
+	def add_friend
+		@collection = current_user.collections.find(params[:id])
+		@friend = @collection.collaborators.build
 	end
 
 	def create

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150316221035) do
+ActiveRecord::Schema.define(version: 20150319222500) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,13 +27,24 @@ ActiveRecord::Schema.define(version: 20150316221035) do
   add_index "cards", ["collection_id"], name: "index_cards_on_collection_id", using: :btree
   add_index "cards", ["user_id"], name: "index_cards_on_user_id", using: :btree
 
-  create_table "collections", force: :cascade do |t|
-    t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
+  create_table "collaborators", force: :cascade do |t|
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "collection_id"
+    t.string   "username"
   end
 
+  add_index "collaborators", ["collection_id"], name: "index_collaborators_on_collection_id", using: :btree
+
+  create_table "collections", force: :cascade do |t|
+    t.string   "title"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+    t.integer  "collaborator_id"
+  end
+
+  add_index "collections", ["collaborator_id"], name: "index_collections_on_collaborator_id", using: :btree
   add_index "collections", ["user_id"], name: "index_collections_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -49,5 +60,7 @@ ActiveRecord::Schema.define(version: 20150316221035) do
 
   add_foreign_key "cards", "collections"
   add_foreign_key "cards", "users"
+  add_foreign_key "collaborators", "collections"
+  add_foreign_key "collections", "collaborators"
   add_foreign_key "collections", "users"
 end

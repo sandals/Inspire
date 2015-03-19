@@ -2,6 +2,7 @@
 <%= link_to "New collection", new_dashboard_collection_path %>
 <hr>
 <h2>Collections</h2>
+
 <ul>
 	<% @collections.each do |collection| %>
 		<li><%= link_to collection.title, [:dashboard, collection] %></li>
