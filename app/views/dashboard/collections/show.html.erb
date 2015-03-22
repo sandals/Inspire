@@ -1,12 +1,15 @@
 <%= content_for(:heading, @collection.title) %>
-<%= link_to "New card", new_dashboard_collection_card_path(@collection) %> | 
-<%= link_to "Add friend to collection", add_friend_dashboard_collection_path(@collection) %>
-<hr>
-<div class="cards">
-<% @collection.cards.each do |card| %>
-	<div class="card">
-		<span class="card__title"><%= card.title %></span>
-		<%= image_tag attachment_url(card, :image, :fill, 300, 300) %>
+<div class="sidebar">
+	<%= link_to "New card", new_dashboard_collection_card_path(@collection) %> | 
+	<%= link_to "Add friend to collection", add_friend_dashboard_collection_path(@collection) %>
+</div>
+<div class="main">
+	<div class="cards">
+		<% @collection.cards.each do |card| %>
+			<div class="card">
+				<span class="card__title"><%= card.title %></span>
+				<%= image_tag attachment_url(card, :image, :fill, 300, 300) %>
+			</div>
+		<% end %>
 	</div>
-<% end %>
 </div>

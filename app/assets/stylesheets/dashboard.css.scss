@@ -1,4 +1,14 @@
+@import 'jeet/index';
+
 .top-bar {
 	background: hsl(0, 0%, 97%);
 	padding: 1.414rem;
+}
+
+.sidebar {
+	@include span(1/6);
+}
+
+.main {
+	@include span(5/6);
 }

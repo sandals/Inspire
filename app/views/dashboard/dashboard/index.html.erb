@@ -1,18 +1,21 @@
 <% content_for(:title, "Dashboard") -%>
-<%= link_to "New collection", new_dashboard_collection_path %>
-<hr>
-<h2>Collections</h2>
+<div class="sidebar">
+	<%= link_to "New collection", new_dashboard_collection_path %>
+	<h2>Collections</h2>
 
-<ul>
-	<% @collections.each do |collection| %>
-		<li><%= link_to collection.title, [:dashboard, collection] %></li>
-	<% end %>
-</ul>
-<hr>
-<div class="cards">
-	<% @cards.each do |card| %>
-		<div class="card">
-			<%= image_tag attachment_url(card, :image, :fill, 300, 300) %>
-		</div>
-	<% end %>
+	<ul>
+		<% @collections.each do |collection| %>
+			<li><%= link_to collection.title, [:dashboard, collection] %></li>
+		<% end %>
+	</ul>
+	<hr>
+</div>
+<div class="main">
+	<div class="cards">
+		<% @cards.each do |card| %>
+			<div class="card">
+				<%= image_tag attachment_url(card, :image, :fill, 300, 300) %>
+			</div>
+		<% end %>
+	</div>
 </div>
