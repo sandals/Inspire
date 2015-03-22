@@ -8,13 +8,27 @@
 
 .card {
 	@include col(1/4);
+		position: relative;
 
 	img {
 		width: 100%;
 		background: white;
 		border-radius: 2px;
-		box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.13);
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.13);
 		padding: 0.354rem;
 		margin-bottom: 1em;
+	}
+
+	&__title {
+		position: absolute;
+		display: block;
+
+		color: white;
+		font-weight: bold;
+		text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+		font-size: 140%;
+
+		padding: 1em;
+		margin: 0.354rem;
 	}
 }
