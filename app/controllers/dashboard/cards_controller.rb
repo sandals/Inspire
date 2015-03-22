@@ -4,12 +4,12 @@ class Dashboard::CardsController < ApplicationController
 	end
 
 	def new
-		@collection = current_user.collections.find(params[:collection_id])
+		@collection = Collection.find_by_id(params[:collection_id])
 		@new_card = @collection.cards.build
 	end
 
 	def create
-		@collection = current_user.collections.find(params[:collection_id])
+		@collection = Collection.find_by_id(params[:collection_id])
 		@card = @collection.cards.new(card_params)
 
 		if @card.save
@@ -23,6 +23,6 @@ class Dashboard::CardsController < ApplicationController
 	private
 
 	def card_params
-		params.require(:card).permit(:image)
+		params.require(:card).permit(:image, :title)
 	end
 end

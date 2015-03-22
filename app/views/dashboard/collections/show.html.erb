@@ -5,6 +5,7 @@
 <div class="cards">
 <% @collection.cards.each do |card| %>
 	<div class="card">
+		<span class="card__title"><%= card.title %></span>
 		<%= image_tag attachment_url(card, :image, :fill, 300, 300) %>
 	</div>
 <% end %>

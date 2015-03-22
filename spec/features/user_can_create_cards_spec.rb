@@ -17,4 +17,16 @@ feature "User can create cards" do
 		expect(page).to have_content("Dank Memes")
 		expect(page).to have_css(".card img")
 	end
+
+	scenario "with a title", js: true do
+		login
+		create_collection("Dank Memes")
+
+		click_link "New card"
+		fill_in "Title", with: "le toucan"
+		attach_file "Image", File.join(Rails.root, '/spec/support/files/test.jpg')
+		click_button "Save card"
+
+		expect(page).to have_content("le toucan")
+	end
 end
